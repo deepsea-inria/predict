@@ -1,0 +1,38 @@
+* section 2.1: also explain how to get my_id() and how to read values associated with other workers in the per-worker datastructure.
+
+* what experimental protocol / plotting setup should be used to check that the constant converge to a close-to-optimal value ?
+- need to activate logging of constants
+- need to see the distribution of the predictions / measured values
+- need, for each constant, to set up runs with manual cutoffs
+- need to plot the execution time, including the position of the constant that the code converged to.
+
+* ident.block(x, f)  => i don't understand, the spec does not say anything about x.
+
+* 2.4 : what is the unit of the value returned? show also the "microseconds_since" function, which is very useful, and the call to set the machine frequency, in order for this function to work.
+
+* typo: control_by_force_paralllel
+
+* 3.0 : update the presentation to first do control by cutoff, then other versions.
+
+* 3.1 : why is the execmode per worker dependent ? why not thread dependent ?
+
+* could we avoid passing a seqbody and a parbody, by passing only one body that may (or may not) include a conditional?
+
+* in particular, fib should not show a duplication of code (computing fib(n-1) and (n-2), twice).
+
+* "tiny" => should this be dubbed as "too small to be measured" ?
+
+* you are not careful enough about overflows in phi_to_pow; you need a conversion function that takes a double and converts it to a measure_type, using max_int  for representing large values.
+
+* make clearer the possibilities:
+- use a fixed cutoff
+- use the complexity and a fixed constant
+- use the complexity and infer the constant online
+
+* typo "quesiton", and "by maing"
+
+* missing assumptions about the complexity function for things to work out well
+
+* kappa is not the thread creation cost, but rather the targeted task size
+
+* note that you don't reach kappa, but an average between kappa/2 and kappa, in the case of a fork2-based program.
