@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.0in]{geometry}
+
+\usepackage[T1]{fontenc}
+
+%%%
+%%%  Page Setup
+%%%
+\special{papersize=8.5in,11in}
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+
+%%% Figure caption declaration
+\usepackage[labelfont=bf]{caption}
+%%% Spacing
+\addtolength{\parskip}{0.5ex}
+
+
+%%%
+%%%  Lists
+%%%
+\usepackage{enumitem}
+\setlist{itemsep=0.5ex,parsep=0pt}             % more compact lists
+
+%%%
+\usepackage{fancyhdr}
+\usepackage{xspace}
+%\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{latexsym,amsthm,amsmath,amsfonts,amssymb,stmaryrd,mathtools}
+
+\usepackage[usenames]{color}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\usepackage{wrapfig}
+
+
+%%%
+%%%  Tables
+%%%
+\usepackage{booktabs}
+%\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{supertabular}
+%%%
+
+
+\usepackage[colorlinks,
+citecolor=Sepia,
+linkcolor=Blue,
+pagebackref=true    
+%pagebackref=true      turn this on and off for citation back references.
+]{hyperref}%         % for online version
+
+\usepackage{natbib}
+\usepackage{url}
+
+%\usepackage{times}
+\usepackage{txfonts}
+
+%% My stuff
+\input{mac}
+\input{local}
+\input{space-tricks}
+
+\newcommand{\pt}[1]{\noindent
+  {\color{blue}{\textbf{Point.}#1}}\smallskip}
+\newcommand{\q}[1]{\noindent {\color{red}{\textbf{Question:} #1}}\smallskip}
+
+\date{}
+
+\author{
+  Umut Acar\\
+  Vitaly Aksenov\\
+  Arthur Chargu\'eraud\\
+  Anna Malova\\
+  Mike Rainey\\
+}
+
+\title{The PASL approach to practical granularity control}
+
+
+%%% this package has to be right before begin{doc}
+\usepackage{microtype}
+\begin{document}
+
+\maketitle
+
+\input{intro}
+\input{impl}
+\input{concl}
+
+\bibliographystyle{plain}
+\bibliography{granularity}
+
+\end{document}

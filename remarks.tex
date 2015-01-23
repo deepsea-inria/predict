@@ -1,0 +1,32 @@
+
+%% Notes, todos, and remarks
+\newcounter{remark}[section]
+
+\newcommand{\myremark}[3]{
+\refstepcounter{remark}
+\[
+\left\{
+\sf 
+\parbox{0.8\columnwidth}
+{
+{\bf {#1}'s remark~\theremark:} 
+{#3}
+}
+\right.
+\]
+\marginpar{\bf {#2}.~\theremark}
+}
+
+
+
+%\newcommand{\uremark}[1]{\myremark{Umut}{U}{#1}}
+\newcommand{\uremark}[1]{}
+\newcommand{\gremark}[1]{\myremark{Guy}{G}{#1}}
+\newcommand{\mremark}[1]{\myremark{Mike}{M}{#1}}
+%\newcommand{\ur}[1]{\uremark{#1}}
+\newcommand{\ur}[1]{}
+\newcommand{\gr}[1]{\gremark{#1}}
+\newcommand{\mr}[1]{\mremark{#1}}
+
+
+\newcommand{\todo}[1]{{\bf{[TODO:{#1}]}}}

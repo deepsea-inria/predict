@@ -1,0 +1,56 @@
+\section{Implementation}
+
+\begin{lstlisting}
+void prim_fork2<Stmt1,Stmt2>(Stmt1 s1, Stmt2 s2)
+\end{lstlisting}
+
+\begin{lstlisting}
+class thread
+  void run()
+\end{lstlisting}
+
+\begin{lstlisting}
+type execmode = {
+  Force_parallel,
+  Force_sequential,
+  Sequential,
+  Parallel
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+class gcthread extends thread
+  execmode m
+
+gcthread* my_gcthread()
+\end{lstlisting}
+
+\begin{lstlisting}
+void fork2<Stmt1,Stmt2>(Stmt1 s1, Stmt2 s2)
+  execmode m = my_gcthread().m
+  if m == Sequential or m == Force_Sequential
+    s1()
+    s2()
+  else
+    prim_fork2(fun () -> my_gcthread().m := m; s1()
+               fun () -> my_gcthread().m := m; s2())
+\end{lstlisting}
+
+\begin{lstlisting}
+execmode combine(execmode p, execmode c)
+  if p == Sequential and c == Parallel
+    return Sequential
+  if c == Force_parallel or c == Force_sequential
+    return c
+  return c
+\end{lstlisting}
+
+\begin{lstlisting}
+void cstmt_base<Stmt>(execmode c, Stmt s)
+  gcthread* t = my_gcthread()
+  execmode p = t.m
+  t.m := combine(p, e)
+  s()
+  assert(my_gcthread() == t)
+  t.m = p
+\end{lstlisting}

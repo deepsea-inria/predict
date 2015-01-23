@@ -1,0 +1,165 @@
+\newcommand{\defeq}{\stackrel{\text{def}}{=}}
+\newcommand{\setbuild}[2]{\{#1~|~#2\}}
+
+%
+\newcommand{\twork}[1]{\mathcal{W}\left({#1}\right)}
+\newcommand{\tspan}[1]{\mathcal{S}\left({#1}\right)}
+\newcommand{\tmax}[2]{\operatorname{Max}\left({#1},{#2}\right)}
+
+\newcommand{\bigml}{\textsf{BigML}\xspace}
+
+\newcommand{\taskcost}{I}
+\newcommand{\taskgc}{III}
+\newcommand{\taskhmm}{III}
+\newcommand{\subtaskgcs}{II.A}
+\newcommand{\subtaskgcp}{II.B}
+\newcommand{\tasksch}{II}
+\newcommand{\taskac}{IV}
+\newcommand{\taskpml}{V}
+\newcommand{\taskeval}{VI}
+
+%% language
+\newcommand{\lfs}{\ensuremath{\mathcal{L}_{FS}}\xspace}
+\newcommand{\lfp}{\ensuremath{\mathcal{L}}\xspace}
+
+\newcommand{\kwparcompose}{~~~~||~~~~}
+\newcommand{\kwseqcompose}{~~~~;~~~~}
+\newcommand{\cdparens}[1]{\mathcd{(}{#1}\mathcd{)}}
+\newcommand{\kw}[1]{\mbox{\ttt{#1}}}
+\newcommand{\Int}{\kw{int}}
+\newcommand{\Letpar}{\kw{letpar}}
+\newcommand{\Slet}{\kw{let}}
+\newcommand{\Mod}[1]{{#1}~\kw{mod}}
+\newcommand{\kwn}{\kw{n}}
+\newcommand{\kwlet}[3]{\kw{let}~{#1}={#2}~\kw{in}~{#3}~\kw{end}}
+\newcommand{\kwletpar}[5]{\kw{letpar}~\cdparens{{#1},{#3}}=\cdparens{{#2},{#4}}~\kw{in}~{#5}~\kw{end}}
+\newcommand{\kwifthenelse}[3]{\kw{if}\,{#1}\,\kw{then}\,{#2}\,\kw{else}\,{#3}}
+\newcommand{\kwfun}[3]{\ensuremath{\kw{fun}~{#1}~{#2}~\kw{is}~{#3}~\kw
+{end}}}
+\newcommand{\kwsfun}[3]{\ensuremath{\kw{fun}_{\kw{s}}~{#1}~{#2}~\kw{is}~{#3}~\kw{end}}}
+\newcommand{\kwcfun}[3]{\ensuremath{\kw{fun}_{\kw{c}}~{#1}~{#2}~\kw{is}~{#3}~\kw{end}}}
+\newcommand{\kwpair}[2]{\ensuremath{\lparen{#1},{#2}}\rparen}
+ \newcommand{\kwpar}[2]{\ensuremath{\llparenthesis\,{#1},{#2}\,\rrparenthesis}}
+\newcommand{\kwapply}[2]{\ensuremath{{#1}~{#2}}}
+\newcommand{\kwnadd}[2]{\ensuremath{{#1} \oplus {#2}}}
+
+\newcommand{\kwmod}[1]{\ensuremath{\kw{mod}\cdparens{#1}}}
+\newcommand{\kwread}[3]{\ensuremath{\kw{read}~{#1}~\kw{as}~{#2}~\kw{in}~{#3}~\kw{end}}}
+\newcommand{\kwfst}[1]{\ensuremath{\kw{fst}\cdparens{#1}}}
+\newcommand{\kwsnd}[1]{\ensuremath{\kw{snd}\cdparens{#1}}}
+
+\newcommand{\trread}[3]{\kw{READ}_{#1}{#2}~\kw{IN}~{#3}}
+\newcommand{\trletpar}[3]{\kw{INPAR}~{#1}~\kw{AND}~{#2}~\kw{THEN}~{#3}}
+
+%% shorthands
+\renewcommand{\a}{\ensuremath{\alpha}}
+\renewcommand{\b}{\ensuremath{\beta}}
+\newcommand{\h}{\ensuremath{\eta}}
+\renewcommand{\r}{\ensuremath{\rho}}
+\newcommand{\s}{\ensuremath{\sigma}}
+
+
+
+% Relations
+\newcommand{\red}{\Downarrow}
+\newcommand{\redgc}{\stackrel{gc?}{\Longrightarrow}}
+\newcommand{\alloc}{\stackrel{alloc}\Longrightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\ra}{\rightarrow}
+
+\newcommand{\sunion}[2]{{#1} \stackrel{?}{\bigcup} {#2}}
+\newcommand{\spush}[2]{{#1} \stackrel{?}{\downarrow} {#2}}
+
+% store, heap
+\newcommand{\mks}[2]{{#1} \stackrel{?}{::} {#2}}
+\newcommand{\mkh}[2]{{#1}_{#2}}
+\newcommand{\mkhe}{\mkh{\emptyset}{\emptyset}}
+\newcommand{\hemp}{\emptyset}
+
+\newcommand{\locs}[1]{\mathcal{L}({#1})}
+\newcommand{\htop}[1]{\mathcal{T}({#1})}
+\newcommand{\roots}[1]{\mathcal{R}({#1})}
+
+
+\newcommand{\hmm}{\textsf{HMM}}
+
+
+% Syntax highlighting
+\newdimen\zzlistingsize
+\newdimen\zzlistingsizedefault
+\zzlistingsizedefault=9pt
+\newdimen\kwlistingsize
+\kwlistingsize=9pt
+\zzlistingsize=\zzlistingsizedefault
+\gdef\lco{black}
+\newcommand{\lcRed}{\gdef\lco{nred}}
+\newcommand{\lcBlack}{\gdef\lco{black}}
+\newcommand{\lcNormal}{\lcBlack}
+\newcommand{\lcBlue}{\gdef\lco{nblue}}
+\newcommand{\lcGreen}{\gdef\lco{ngreen}}
+\newcommand{\lcPurple}{\gdef\lco{npurple}}
+\newcommand{\Lstbasicstyle}{\fontsize{\zzlistingsize}{1.1\zzlistingsize}\ttfamily\color{\lco}}
+%\newcommand{\keywordstyle}{\fontsize{0.9\zzlistingsize}{1.0\zzlistingsize}\bf}
+%\newcommand{\keywordstyle}{\fontsize{\kwlistingsize}{1.1\kwlistingsize}\normalfont\bf\color{\lco}}
+\newcommand{\keywordstyle}{\fontsize{1.09\kwlistingsize}{\kwlistingsize}\normalfont\bf\color{\lco}}
+\newlength{\zzlstwidth}
+\settowidth{\zzlstwidth}{{\Lstbasicstyle~}}
+\newcommand{\lcm}{\color{\lco}}
+
+\newcommand{\tts}{\texttt{\$S}}
+\newcommand{\ttc}{\texttt{\$C}}
+
+\lstset{
+  basewidth=\zzlstwidth,
+%  basicstyle=\Lstbasicstyle,
+  basicstyle=\small\ttfamily,
+%  identifierstyle=,
+  numbers=left, numberstyle=\tiny, numbersep=5pt,
+%  frame=single,
+  keywordstyle=\keywordstyle,
+  keywords={fun,cfun,sfun,read,case,of,type,functor,structure,signature,sig,struct,datatype,let,letpar,val,fn,in,end,as,select,mod,apply,sapply,capply,write},  %nil,cons,
+  commentstyle=\rmfamily\slshape\color{\lco},
+  morecomment=[n]{(*}{*)},
+  lineskip={-0pt},
+%  columns=[l]flexible,
+  columns=[l]fullflexible,
+  keepspaces=true,
+  mathescape=true,
+% NOTE: need TWO sets of braces around each definition below!
+  literate={=>}{{$\lcm\Rightarrow$}}1 %
+%           {fn}{{$\lambda$}}1 %
+           {Mod}{{$\lcGreen\text{\Lstbasicstyle Mod}\lcNormal$}}3 %
+           {Read}{{$\lcGreen\text{\Lstbasicstyle Read}\lcNormal$}}4 %
+           {Write}{{$\lcGreen\text{\Lstbasicstyle Write}\lcNormal$}}5 %
+           {sapply}{{$\lcm\text{\keywordstyle apply}^\S$}}6 %
+           {capply}{{$\lcm\text{\keywordstyle apply}^\C$}}6 %
+           {sfun}{{$\lcm\text{\keywordstyle fun}^\S$}}4 %
+           {cfun}{{$\lcm\text{\keywordstyle fun}^\C$}}4 %
+           {=\\S}{{$\lcm\text{\Lstbasicstyle=}\S$}}1
+           {=\\C}{{$\lcm\text{\Lstbasicstyle=}\C$}}1
+%           {^S}{{$\lcm^\S$}}1
+%           {^C}{{$\lcm^\C$}}1
+           {^S}{{$\lcm\;\,\tts$}}1
+           {^C}{{$\lcm\;\,\ttc$}}1
+           {^SS}{{$\lcm^{\S, \S}$}}1
+           {^SC}{{$\lcm^{\S, \C}$}}1
+           {^CS}{{$\lcm^{\C, \S}$}}1
+           {^CC}{{$\lcm^{\C, \C}$}}1
+           {^D}{{$\lcm^\delta$}}1
+           {^Dh}{{$\lcm^{\delta_h}$}}1
+           {^Dt}{{$\lcm^{\delta_t}$}}1
+           {->}{{$\lcm\rightarrow$}}2
+           {->^S}{{$\lcm\hspace{-1pt}\arrowsymbol{\S}\hspace{-1pt}$}}2
+           {->^C}{{$\lcm\hspace{-1pt}\arrowsymbol{\C}\hspace{-1pt}$}}2
+           {->^D}{{$\lcm\hspace{-1pt}\arrowsymbol{\delta}\hspace{-1pt}$}}2
+           {->^Dh}{{$\lcm\hspace{-1pt}\arrowsymbol{\delta_h}\hspace{-1pt}$}}2
+           {->^Dt}{{$\lcm\hspace{-1pt}\arrowsymbol{\delta_t}\hspace{-1pt}$}}2
+%           {-c->}{${c\rightarrow}$}3
+%           {-s->}{${s\rightarrow}$}3
+%           {-c->}{$\rightarrow$}1
+%           {-s->}{$\rightarrow$}1
+%           {_}{{\lcm\_}}1
+           {'a}{{$\alpha$}}1
+           {'b}{{$\beta$}}1
+           {'d}{{$\lcm\delta$}}1
+}

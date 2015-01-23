@@ -1,0 +1,29 @@
+%space left between floats.
+\setlength{\floatsep}{2mm}
+% space between last top float or first bottom float and the text.
+\setlength{\textfloatsep}{2mm}
+% space left on top and bottom of an in-text float.
+\setlength{\intextsep}{2.5mm}
+% space above caption
+\setlength{\abovecaptionskip}{1mm}
+%space below caption
+\setlength{\belowcaptionskip}{1mm}
+
+%% Change figure handling
+\renewcommand{\topfraction}{0.80}
+\renewcommand{\textfraction}{0.2}
+\renewcommand{\floatpagefraction}{0.80}
+
+\usepackage[small,compact]{titlesec} 
+%\usepackage[compact]{titlesec} 
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0.5ex,parsep=0pt}             % more compact lists
+
+
+
+\titlespacing{\paragraph}{
+  0pt}{             % left margin
+  1.0\baselineskip}{% space before (vertical)
+  1em}            % space after (horizontal)
