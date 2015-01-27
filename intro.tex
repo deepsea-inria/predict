@@ -1,1 +1,24 @@
 \section{Introduction}
+In this paper we give a solution to the following granularity problem:
+for example program has two nested cycles and the computer has an unknown number
+of processors, so you need to decide how to split this for-cycles
+into different tasks in such a way, that the number of tasks will be
+enough to feed all the processors, but on the other hand, that number should not be very big,
+because we spend some non-negligible time to schedule them.
+
+The first idea, which was implemented, to solve that problem was in the paper \cite, where
+the authors create special class estimator, which could estimate the real time of running the
+function. So if the predicted time is bigger, than some threshold, it runs a task in parallel, otherwise,
+the task is run sequentially. But this solution doesn't help in the case of nested loops, because estimator
+could always say to run all iterations of inner and outer in parallel, if some initial constant is set to the wrong value.
+And this, obviously, creates a very big overhead on creating and scheduling tasks. But if we consider that loops
+together, we will have much smaller overhead.
+
+Also, there were an attempt to solve the problem of nested loops specially for the graph algorithms using
+special data structur* for the frontier in \cite. But in the following paper the problem is considered in much more general case.
+To solve this we introduce special UNKNOWN mode, which helps the estimator to obtain the right constant first, and
+then predict the run mode type. Comparing this type of estimator with the types of estimator without that mode on
+different problems we obtain the sufficient enchancement, when the problem size becomes quite big in compare to the number of processors.
+Also, the theorem about the number of preliminary runs was proved.
+
+
